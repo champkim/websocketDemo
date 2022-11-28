@@ -46,8 +46,8 @@ func (w *World) run() {
 
 		case tick := <- ticker.C: //1초마다 실행 
 			for client := range w.clientMap { //Client Map 전체 for 
-				// client.send <- []byte(tick.String()) //tick 값 Send >> client.go 의 WritePump 에서 처리  
-				client.send <- []byte("1,2,3,4,5,5,6,9") //tick 값 Send >> client.go 의 WritePump 에서 처리  
+				client.send <- []byte(tick.String()) //tick 값 Send >> client.go 의 WritePump 에서 처리  
+				//client.send <- []byte("1,2,3,4,5,5,6,9") //tick 값 Send >> client.go 의 WritePump 에서 처리  
 			}
 			fmt.Println(tick.String())
 		}
